@@ -465,15 +465,12 @@ img {
 
 /* Footer styles */
 .footer-text {
-  width: 264px;
-}
-
-.footer-text {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+  width: 264px;
 }
 
 .page-footer {
@@ -546,6 +543,242 @@ img {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-social-icons {
-  fill: #f4f4fd;
+.form-footer-container {
+  width: 453px;
+  height: 80px;
+  margin-left: 80px;
+  /*Для всіх ефектів ховера і фокуса (колір, фон, тінь) зроблені переходи. час — 250ms, 
+  функція розподілу часу — cubic-bezier(0.4, 0, 0.2, 1).*/
+}
+
+.form-footer {
+  display: flex;
+  align-items: flex-end;
+  color: #f4f4fd;
+}
+
+.form-label-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label-input {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  width: 264px;
+  height: 40px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  margin-top: 16px;
+  margin-right: 24px;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.form-label-input::placeholder {
+  color: #fff;
+}
+
+.form-button-footer {
+  border-radius: 4px;
+  padding: 8px 24px;
+  width: 165px;
+  height: 40px;
+  background: #4d5ae5;
+  color: #fff;
+}
+
+/* Backdrop styles */
+
+.backdrop {
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 408px;
+  min-height: 584px;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background: #fcfcfc;
+  padding: 72px 24px 24px;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  border-radius: 100%;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #2e2f42;
+  background-color: #e7e9fc;
+}
+
+.modal-close-btn:hover {
+  fill: #fff;
+  background-color: #404bbf;
+}
+
+.rewiev-form-description {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #2e2f42;
+  max-width: 360px;
+  margin-bottom: 16px;
+}
+
+.rewiev-form-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  margin-bottom: 8px;
+}
+
+.rewiev-form-input {
+  width: 360px;
+  height: 40px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  padding-left: 38px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rewiev-form-input:focus {
+  border: 1px solid #4d5ae5;
+  outline: transparent;
+}
+
+.rewiev-form-input:focus + .rewiev-form-filed-icon {
+  fill: #4d5ae5;
+}
+
+.rewiev-form-filed-icon {
+  fill: #2e2f42";
+}
+
+.rewiev-form-input-wrapper {
+  position: relative;
+}
+
+.rewiev-form-filed-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rewiev-form-message {
+  border: 1px solid rgba(46, 47, 66, 0.4);
+border-radius: 4px;
+width: 360px;
+height: 120px;
+background-color: transparent;
+resize: none;
+padding: 8px 16px;
+transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rewiev-form-message:focus {
+  border-color: #4d5ae5;
+  outline: transparent;
+}
+
+.rewiev-form-message::placeholder {
+font-size: 12px;
+line-height: 1.16667;
+letter-spacing: 0.04em;
+color: rgba(46, 47, 66, 0.4);
+}
+
+.rewiev-form-checkbox-wrapper {
+  margin-bottom: 24px;
+}
+
+.rewiev-form-chekbox-label {
+  margin-top: 16px;
+font-size: 12px;
+line-height: 1.16667;
+letter-spacing: 0.04em;
+color: #8e8f99;
+}
+
+.rewiev-form-own-checkbox{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+border: 1px solid rgba(46, 47, 66, 0.4);
+cursor: pointer;
+fill: transparent;
+}
+
+.rewiev-form-chekbox:checked + .rewiev-form-chekbox-label .rewiev-form-own-checkbox {
+background-color: #404bbf;
+border-color: #404bbf;
+fill: #ffffff;
+}
+
+.rewiev-form-chekbox:focus + .rewiev-form-chekbox-label .rewiev-form-own-checkbox {
+  outline: 1px solid #404bbf;
+}
+
+.privace-police-link {
+  text-decoration: underline;
+  color: #4d5ae5;
+}
+
+.rewiev-form-submit {
+  border-radius: 4px;
+padding: 16px 32px;
+width: 169px;
+height: 56px;
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+background: #4d5ae5;
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.04em;
+text-align: center;
+color: #fff;
+}
+
+.rewiev-form-btn {
+  display: flex;
+  justify-content: center;
 }
