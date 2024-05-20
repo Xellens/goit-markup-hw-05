@@ -59,7 +59,7 @@ img {
 }
 
 .container {
-  width: 1158px;
+  max-width: 1158px;
   margin: 0 auto;
   padding: 0 15px 0 15px;
 }
@@ -475,8 +475,8 @@ img {
 
 .page-footer {
   background-color: #2e2f42;
-  padding: 100px 1020px 156px 100px;
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .logo-color-studio {
@@ -498,6 +498,10 @@ img {
 .container-footer-logo {
   display: flex;
   align-items: baseline;
+}
+
+.footer-icons-container {
+  margin-right: 80px;
 }
 
 .footer-social-links:hover,
@@ -557,11 +561,6 @@ color: #fff;
   gap: 24px;
 }
 
-.form-label-footer {
-  display: flex;
-  flex-direction: column;
-}
-
 .form-label-input {
   border: 1px solid #fff;
   border-radius: 4px;
@@ -586,14 +585,18 @@ color: #fff;
   padding: 8px 24px;
   min-width: 165px;
   height: 40px;
-  background: #4d5ae5;
+  background-color: #4d5ae5;
+  color: #ffffff;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
   text-align: center;
-  fill: white;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-icon {
+  margin-left: 16px; 
 }
 
 /* Backdrop styles */
@@ -601,13 +604,14 @@ color: #fff;
 .backdrop {
   position: fixed;
   z-index: 99999;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(46, 47, 66, 0.4);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -615,6 +619,7 @@ color: #fff;
 .backdrop.is-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .modal {
@@ -627,8 +632,8 @@ color: #fff;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
-  padding: 72px 24px 24px;
+  background-color: #fcfcfc;
+  padding: 72px 24px 24px 24px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
@@ -639,22 +644,23 @@ color: #fff;
   position: absolute;
   top: 24px;
   right: 24px;
-  border-radius: 50%;
   width: 24px;
   height: 24px;
   padding: 0;
-  border-radius: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   fill: #2e2f42;
   background-color: #e7e9fc;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  cursor: pointer;
+  line-height: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close-btn:hover, .modal-close-btn:focus {
   fill: #ffffff;
-    background-color: #404bbf;
-
+  background-color: #404bbf;
+  border: none;
 }
 
 .modal-close-btn-icons {
@@ -663,13 +669,17 @@ color: #fff;
 
 .rewiev-form-description {
   font-weight: 500;
-  font-size: 16px;
+  /*font-size: 16px;*/
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
   color: #2e2f42;
   max-width: 360px;
   margin-bottom: 16px;
+}
+
+.rewiev-form-field-wrapper {
+  margin-bottom: 8px; 
 }
 
 .rewiev-form-label {
@@ -682,30 +692,28 @@ color: #fff;
   margin-bottom: 8px;
 }
 
-.rewiev-form-field-wrapper {
-  margin-bottom: 8px; 
+.rewiev-form-input-wrapper {
+  position: relative;
 }
 
 .rewiev-form-input {
-  width: 360px;
+  width: 100%;
   height: 40px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   padding-left: 38px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+  /*outline: transparent;*/
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rewiev-form-input:focus {
-  border: 1px solid #4d5ae5;
+  border-color: #4d5ae5;
   outline: transparent;
 }
 
 .rewiev-form-input:focus + .rewiev-form-filed-icon {
   fill: #4d5ae5;
-}
-
-.rewiev-form-input-wrapper {
-  position: relative;
 }
 
 .rewiev-form-filed-icon {
@@ -717,15 +725,21 @@ color: #fff;
   fill: #2e2f42";
 }
 
+.rewiev-comment-wrapper {
+  margin-bottom: 16px;
+}
+
 .rewiev-form-message {
   border: 1px solid rgba(46, 47, 66, 0.4);
-border-radius: 4px;
-width: 360px;
-height: 120px;
-background-color: transparent;
-resize: none;
-padding: 8px 16px;
-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  width: 100%;
+  height: 120px;
+  background-color: transparent;
+  color: rgba(46, 47, 66, 0.4);
+  resize: none;
+  padding: 8px 16px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rewiev-form-message:focus {
@@ -745,9 +759,9 @@ color: rgba(46, 47, 66, 0.4);
 }
 
 .rewiev-form-chekbox-label {
-  margin-top: 16px;
+    font-weight: 400;
 font-size: 12px;
-line-height: 1.16667;
+line-height: 1.17;
 letter-spacing: 0.04em;
 color: #8e8f99;
 }
@@ -758,15 +772,19 @@ color: #8e8f99;
   align-items: center;
   width: 16px;
   height: 16px;
+  margin-right: 8px;
   border-radius: 2px;
-border: 1px solid rgba(46, 47, 66, 0.4);
-cursor: pointer;
-fill: transparent;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  cursor: pointer;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rewiev-form-chekbox:checked + .rewiev-form-chekbox-label .rewiev-form-own-checkbox {
 background-color: #404bbf;
-border-color: #404bbf;
+border: none;
 fill: #ffffff;
 }
 
@@ -777,24 +795,28 @@ fill: #ffffff;
 .privace-police-link {
   text-decoration: underline;
   color: #4d5ae5;
+  line-height: 1.33;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
 }
 
 .rewiev-form-submit {
+  display: block;
+  align-items: center;
   border-radius: 4px;
-padding: 16px 32px;
-width: 169px;
-height: 56px;
-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-background: #4d5ae5;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: 0.04em;
-text-align: center;
-color: #fff;
-}
-
-.rewiev-form-btn {
-  display: flex;
-  justify-content: center;
+  padding: 16px 32px;
+  min-width: 169px;
+  height: 56px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: #4d5ae5;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
